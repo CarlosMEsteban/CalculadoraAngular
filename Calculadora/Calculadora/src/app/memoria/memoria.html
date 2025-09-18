@@ -1,0 +1,81 @@
+<div class="calculator-container">
+	<div class="calculator">
+		<div class="calculator-display" id="display">Res:{{resultado}} {{ultimoOperador}}</div>
+        <div class="calculator-display" id="display">{{ultimoNumero}}</div>
+		<div class="calculator-buttons">
+			<button class="btn" data-action="clear">C</button>
+			<button class="btn" data-action="back">←</button>
+			<button class="btn" data-action="divide" (click)="operar('%')">÷</button>
+			<button class="btn" data-action="multiply" (click)="operar('x')">×</button>
+			<button class="btn" data-action="7" (click)=tratarNumeroPulsado(7)>7</button>
+			<button class="btn" data-action="8" (click)=tratarNumeroPulsado(8)>8</button>
+			<button class="btn" data-action="9" (click)=tratarNumeroPulsado(9)>9</button>
+			<button class="btn" data-action="subtract" (click)="operar('-')">−</button>
+			<button class="btn" data-action="4" (click)=tratarNumeroPulsado(4)>4</button>
+			<button class="btn" data-action="5" (click)=tratarNumeroPulsado(5)>5</button>
+			<button class="btn" data-action="6" (click)=tratarNumeroPulsado(6)>6</button>
+			<button class="btn" data-action="add" (click)="operar('+')">+</button>
+			<button class="btn" data-action="1" (click)=tratarNumeroPulsado(1)>1</button>
+			<button class="btn" data-action="2" (click)=tratarNumeroPulsado(2)>2</button>
+			<button class="btn" data-action="3" (click)=tratarNumeroPulsado(3)>3</button>
+			<button class="btn" data-action="equals" style="height: 106px;">=</button>
+			<button class="btn" data-action="0"  (click)=tratarNumeroPulsado(0) style="grid-column: span 2;">0</button>
+			<button class="btn" data-action="dot">.</button>
+		</div>
+	</div>
+</div>
+
+<style>
+.calculator-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background: #f5f5f5;
+}
+.calculator {
+	background: #222;
+	border-radius: 16px;
+	box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+	padding: 32px 24px;
+	width: 320px;
+}
+.calculator-display {
+	background: #111;
+	color: #fff;
+	font-size: 2.5rem;
+	text-align: right;
+	padding: 16px;
+	border-radius: 8px;
+	margin-bottom: 18px;
+	min-height: 48px;
+	letter-spacing: 2px;
+}
+.calculator-buttons {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 12px;
+}
+.btn {
+	background: #333;
+	color: #fff;
+	font-size: 1.3rem;
+	border: none;
+	border-radius: 8px;
+	padding: 18px 0;
+	cursor: pointer;
+	transition: background 0.2s;
+}
+.btn:hover {
+	background: #444;
+}
+.btn[data-action="equals"] {
+	background: #ff9500;
+	color: #fff;
+	grid-row: span 2;
+	font-size: 1.5rem;
+}
+.btn[data-action="equals"]:hover {
+	background: #e08900;
+}
+</style>
